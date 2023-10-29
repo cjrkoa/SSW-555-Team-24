@@ -14,6 +14,51 @@ body {
   font-family: Inter;
 }
 
+.navbar {
+  @apply  bg-blue-400;
+}
+
+.navbar-structure1 {
+  @apply max-w-6xl mx-auto items-center;
+}
+
+.navbar-structure2 {
+  @apply flex mx-auto justify-between;
+}
+
+.navbar-text {
+  @apply py-2 px-2 text-center text-black font-medium font-['Outfit'] tracking-wide text-xl hover:text-yellow-200;
+}
+
+.footer {
+  @apply relative w-full bg-blue-400 border border-gray-400;
+}
+
+.content {
+  @apply mx-auto w-full max-w-7xl px-8 flex space-x-40 mt-4;
+}
+
+.link {
+  @apply py-1.5 font-normal transition-colors hover:text-blue-900 text-xs;
+}
+
+.links {
+  @apply grid grid-cols-3 justify-between gap-20;
+}
+
+.title {
+  @apply mb-3 font-medium opacity-40 text-sm;
+}
+
+.footer-bottom {
+  @apply font-medium;
+}
+
+.primay-navbar {
+  @apply text-center text-black text-2xl font-medium font-['Outfit'] tracking-wide text-xs;
+}
+
+
 @layer utilities {
   .btn_white { 
     @apply  border-white bg-white px-8 py-3 text-green-50

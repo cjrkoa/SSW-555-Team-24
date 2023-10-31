@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
-// Replace with link to our actual DB
-const mongoDB = "mongodb://";
+const mongoDB = "mongodb+srv://croddy:<password>@sharevent.zqppojj.mongodb.net/";
 
 async function connect(){
     try{

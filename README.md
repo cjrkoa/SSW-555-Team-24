@@ -22,7 +22,7 @@ bun install
 ```
 
 
-Then, run the development server:
+Then, run the development server using the chosen package manager:
 
 ```bash
 npm run dev

@@ -13,14 +13,23 @@ export default function AddEvent() {
     
     return(
         <Fragment>
-            <input name="name" onChange={() => setName()} />
-            <input name="date" onChange={() => setDate()}/>
-            <input name="price" onChange={() => setPrice()}/>
-            <input name="category" onChange={() => setCategory()}/>
-            <input name="type" onChange={() => setType()}/>
-            <input name="language" onChange={() => setLangauge()}/>
-            <input name="currency" onChange={() => setCurrency()}/>
-            <button onClick={() => console.log(name)}>Submit</button>
+            <ui>
+                <h1>name</h1>
+                <input name="name" onChange={() => setName()} />
+                <h1>date</h1>
+                <input name="date" onChange={() => setDate()}/>
+                <h1>price</h1>
+                <input name="price" onChange={() => setPrice()}/>
+                <h1>category</h1>
+                <input name="category" onChange={() => setCategory()}/>
+                <h1>type</h1>
+                <input name="type" onChange={() => setType()}/>
+                <h1>language</h1>
+                <input name="language" onChange={() => setLangauge()}/>
+                <h1>currency</h1>
+                <input name="currency" onChange={() => setCurrency()}/>
+                <button onClick={() => console.log(name)}>Submit</button>
+            </ui>
         </Fragment>
     );
 }

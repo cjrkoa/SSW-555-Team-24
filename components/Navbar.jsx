@@ -18,7 +18,7 @@ const Navbar = () => {
           {/** Secondary Nav Bar Section */}
           <div className="flex items-center space-x-5">
             <a href="/signin" className="navbar-text">Sign In</a>
-            <a href="/" className="navbar-text bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign Up</a>
+            <a href="/signup" className="navbar-text bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign Up</a>
           </div>
         </div>
       </div>

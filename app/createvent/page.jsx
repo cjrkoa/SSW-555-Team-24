@@ -10,7 +10,6 @@ export default function AddEvent() {
     const [type, setType] = useState("");
     const [language, setLanguage] = useState("");
     const [currency, setCurrency] = useState('');
-    const trigger_CI = 0;
     
     return(
         <Fragment>

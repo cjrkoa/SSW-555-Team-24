@@ -1,5 +1,5 @@
 
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
@@ -68,5 +68,5 @@ app.put("/newevent", async (req,res) => {
         res.send(err)
     }
 
-});
+});*/
 

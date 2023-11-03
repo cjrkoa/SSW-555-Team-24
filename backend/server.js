@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
-const mongoDB = "mongodb+srv://croddy:<password>@sharevent.zqppojj.mongodb.net/";
+const mongoDB = "mongodb+srv://croddy:fq3gZzgAgRhYKt7hWEbUavnIhbbBE2H7EGOc16wcCtggT2aImU1lITmLUhVRFWpK@sharevent.zqppojj.mongodb.net/";
 
 async function connect(){
     try{

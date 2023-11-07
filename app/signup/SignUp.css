@@ -1,0 +1,80 @@
+
+.sign-up-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.sign-up-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.sign-up-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sign-up-form button:hover {
+  background-color: #4cae4c;
+}
+
+.sign-up-heading {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.sign-in-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 300px;
+}
+
+.sign-in-question {
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.sign-in-container button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
+  align-self: flex-start;
+}
+
+.sign-in-container button:hover {
+  background-color: #4cae4c;
+}

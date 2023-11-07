@@ -1,10 +1,10 @@
 import { MongoClient } from 'mongodb';
-import { config } from 'dotenv';
+//import { config } from 'dotenv';
 import express from 'express';
 //const mongoose = require("mongoose");
 
 //mongoose.set("strictQuery", false);
-config();
+//config();
 
 const username = encodeURIComponent("croddy");
 const password = encodeURIComponent("GtP_6rF#Af3yG39");

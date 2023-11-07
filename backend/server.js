@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 //import { config } from 'dotenv';
 import express from 'express';
 //const mongoose = require("mongoose");
@@ -6,11 +6,33 @@ import express from 'express';
 //mongoose.set("strictQuery", false);
 //config();
 
-const username = encodeURIComponent("croddy");
-const password = encodeURIComponent("GtP_6rF#Af3yG39");
-const mongoDB = 'mongodb+srv://' + username + ':' + password + '@sharevent.zqppojj.mongodb.net/';
+var password = encodeURIComponent("GtP_6rF%35Af3yG39");
+const uri = `mongodb://croddy:${password}@sharevent.zqppojj.mongodb.net/?retryWrites=true&w=majority`;
 
-async function connectToCluster(uri){
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
+  async function run() {
+    try {
+      // Connect the client to the server	(optional starting in v4.7)
+      await client.connect();
+      // Send a ping to confirm a successful connection
+      await client.db("admin").command({ ping: 1 });
+      console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    } finally {
+      // Ensures that the client will close when you finish/error
+      await client.close();
+    }
+  }
+  run().catch(console.dir);
+
+//attempt 1
+/*async function connectToCluster(uri){
     let mongoClient;
 
     try {
@@ -43,7 +65,7 @@ const event = {
     type: String,
     language: String,
     currency: String
-};
+};*/
 
 
 /*const express = require("express"),
@@ -91,4 +113,5 @@ app.put("/newevent", async (req,res) => {
 
 });*/
 
-await executeStudentCrudOperations();
+//await executeStudentCrudOperations();
+await run();

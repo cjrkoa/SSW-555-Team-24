@@ -1,34 +1,55 @@
+import { MongoClient } from 'mongodb';
+import { config } from 'dotenv';
+import express from 'express';
+//const mongoose = require("mongoose");
 
-const mongoose = require("mongoose");
+//mongoose.set("strictQuery", false);
+config();
 
-mongoose.set("strictQuery", false);
+const username = encodeURIComponent("croddy");
+const password = encodeURIComponent("GtP_6rF#Af3yG39");
+const mongoDB = 'mongodb+srv://' + username + ':' + password + '@sharevent.zqppojj.mongodb.net/';
 
-const mongoDB = "mongodb+srv://croddy:GtP_6rF#Af3yG39@sharevent.zqppojj.mongodb.net/";
+async function connectToCluster(uri){
+    let mongoClient;
 
-async function connect(){
-    try{
-        const connection  = await mongoose.connect(mongoDB);
-        return connection;
-    } catch(err){
-        return err;
+    try {
+        mongoClient = new MongoClient(uri);
+        console.log('Connecting to MongoDB Atlas cluster...');
+        await mongoClient.connect();
+        console.log('Successfully connected to MongoDB Atlas!');
+
+        return mongoClient;
+    } catch (error) {
+        console.error('Connection to MongoDB Atlas failed!', error);
+        process.exit();
     }
 }
 
-const Schema = mongoose.Schema;
-const event = new Schema({
+export async function executeStudentCrudOperations() {
+    let mongoClient;
+    
+    try {
+        mongoClient = await connectToCluster(mongoDB);
+    } finally {
+        await mongoClient.close();
+    }
+ }
+
+const event = {
     date : Date,
     price: Number,
     category: String,
     type: String,
     language: String,
     currency: String
-});
+};
 
 
-const express = require("express"),
-       app = express(),
-       port = process.env.PORT || 5000,
-       cors = require("cors");
+/*const express = require("express"),
+    app = express(),
+    port = process.env.PORT || 5000,
+    cors = require("cors");
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
@@ -68,5 +89,6 @@ app.put("/newevent", async (req,res) => {
         res.send(err)
     }
 
-});
+});*/
 
+await executeStudentCrudOperations();

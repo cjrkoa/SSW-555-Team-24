@@ -1,6 +1,6 @@
 "use client"
 
-import { Fragment, useState } from "react";
+import { React, Fragment, useState } from "react";
 
 export default function AddEvent() {
     const [name, setName] = useState(""); //name

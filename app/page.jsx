@@ -1,22 +1,26 @@
+import Image from "next/image"
+import funrun from './image/Funrun-stock.jpg'
+import concert from './image/concert-stock.jpg'
+
 export default function Home() {
   return (
     <main className = "">
-      <div className=" mx-auto px-4 mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl">
-        <div className=" p-4 h-full w-auto rounded-3xl bg-yellow-200">
-        
+      <div className="body-container">
+        <div className="image-container">
+          <h2>Looking to find an event?</h2>
+          <p>Click here to start the search for your ideal event!</p>
         </div>
-        <div className=" p-4 h-full w-auto rounded-3xl bg-yellow-200">
-        
+        <div className="image-container">
+          <Image src={funrun} alt="" />
         </div>
-    </div>
-    <div className=" mx-auto px-4 mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl">
-        <div className=" p-4 h-full w-auto rounded-3xl bg-yellow-200">
-        
+        <div className="image-container">
+          <Image src={concert} alt="" />
         </div>
-        <div className=" p-4 h-full w-auto rounded-3xl bg-yellow-200">
-        
+        <div className="image-container">
+          <h2>Looking to post an event?</h2>
+          <p>Click here to start creating you post!</p>
         </div>
-    </div>
+      </div>
     </main>
   )
 }

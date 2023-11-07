@@ -3,14 +3,24 @@
 import { Fragment, useState } from "react";
 
 export default function AddEvent() {
-    const [name, setName] = useState("");
-    const [date, setDate] = useState("");
-    const [price, setPrice] = useState(0);
-    const [category, setCategory] = useState("");
-    const [type, setType] = useState("");
-    const [language, setLanguage] = useState("");
-    const [currency, setCurrency] = useState('');
+    const [name, setName] = useState(""); //name
+    const [date, setDate] = useState(""); //date
+    const [price, setPrice] = useState(0); //price
+    const [category, setCategory] = useState(""); //category
+    const [type, setType] = useState(""); //type
+    const [language, setLanguage] = useState(""); //language
+    const [currency, setCurrency] = useState(''); //currency
     
+    const func = (x) => {
+        if(x == 1){
+            return x;
+        }
+        else if(x == 2){
+            return x;
+        }
+        return x * 2;
+    };
+
     return(
         <Fragment>
             <h1>Enter information to create a new event below</h1>

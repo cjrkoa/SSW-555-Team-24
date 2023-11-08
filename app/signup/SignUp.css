@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px - 146px);
+  /* TODO: remove hard coding above */
   background-color: #f7f7f7;
 }
 

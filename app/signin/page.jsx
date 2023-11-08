@@ -10,7 +10,7 @@ export default function SignIn() {
           <form className="sign-in-form">
             <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required />
-            <button type="submit">Sign In</button>
+            <button type="submit" className="bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign In</button>
           </form>
         </div>
         <div className="sign-up-container">

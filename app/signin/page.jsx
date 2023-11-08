@@ -14,7 +14,7 @@ export default function SignIn() {
           </form>
         </div>
         <div className="sign-up-container">
-          <h2 className="sign-up-question">Don't have an account?</h2>
+          <h2 className="sign-up-question">{"Don't have an account?"}</h2>
           <a href="/signup"><button>Create Account</button></a>
         </div>
       </div>

@@ -31,15 +31,9 @@
 .sign-in-form button {
   padding: 10px;
   font-size: 16px;
-  background-color: #5cb85c;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.sign-in-form button:hover {
-  background-color: #4cae4c;
 }
 
 .sign-in-heading {
@@ -66,15 +60,9 @@
   margin-top: 10px;
   padding: 10px;
   font-size: 16px;
-  background-color: #5cb85c;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   width: 150px;
   align-self: flex-start;
-}
-
-.sign-up-container button:hover {
-  background-color: #4cae4c;
 }

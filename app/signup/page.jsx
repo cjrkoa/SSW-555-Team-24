@@ -12,12 +12,12 @@ export default function SignIn() {
             <input type="password" placeholder="Password" required />
             <input type="First Name" placeholder="First Name" required />
             <input type="Last Name" placeholder="Last Name" required />
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign Up</button>
           </form>
         </div>
         <div className="sign-in-container">
           <h2 className="sign-in-question">Already have an account?</h2>
-          <a href="/signin"><button>Sign In Here</button></a>
+          <a href="/signin"><button className="bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign In Here</button></a>
         </div>
       </div>
     </Fragment>

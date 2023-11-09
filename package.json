@@ -45,6 +45,9 @@
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/mocks/styleMock.js"
+    },
     "testEnvironment": "jsdom"
   }
 }

@@ -12,27 +12,24 @@ describe("SignUp Component", () => {
   });
 
   it("renders sign-up page container", () => {
-    const signUpPage = container.querySelector(".sign-up-page");
+    const signUpPage = container.querySelector(".page-container");
     expect(signUpPage).toBeInTheDocument();
-    expect(signUpPage).toHaveClass("sign-up-page");
   });
 
   it("renders sign-up container", () => {
-    const signUpContainer = container.querySelector(".sign-up-container");
+    const signUpContainer = container.querySelector(".primary-container");
     expect(signUpContainer).toBeInTheDocument();
-    expect(signUpContainer).toHaveClass("sign-up-container");
   });
 
   it("renders sign-up heading with correct text", () => {
     const signUpHeading = screen.getByRole("heading", { name: "Create Account" });
     expect(signUpHeading).toBeInTheDocument();
-    expect(signUpHeading).toHaveClass("sign-up-heading");
+    expect(signUpHeading).toHaveClass("primary-heading");
   });
 
   it("renders sign-up form", () => {
-    const signUpForm = container.querySelector(".sign-up-form");
+    const signUpForm = container.querySelector(".form");
     expect(signUpForm).toBeInTheDocument();
-    expect(signUpForm).toHaveClass("sign-up-form");
   });
 
   it("renders email input", () => {
@@ -61,15 +58,14 @@ describe("SignUp Component", () => {
   });
 
   it("renders sign-in container", () => {
-    const signInContainer = container.querySelector(".sign-in-container");
+    const signInContainer = container.querySelector(".secondary-container");
     expect(signInContainer).toBeInTheDocument();
-    expect(signInContainer).toHaveClass("sign-in-container");
   });
 
   it("renders sign-in question with correct text", () => {
     const signInQuestion = screen.getByText("Already have an account?");
     expect(signInQuestion).toBeInTheDocument();
-    expect(signInQuestion).toHaveClass("sign-in-question");
+    expect(signInQuestion).toHaveClass("secondary-question");
   });
 
   it("renders create account button with correct text", () => {

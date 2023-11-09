@@ -1,5 +1,5 @@
 
-.sign-up-page {
+.page-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,20 +8,20 @@
   background-color: #f7f7f7;
 }
 
-.sign-up-container {
+.primary-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.sign-up-form {
+.form {
   display: flex;
   flex-direction: column;
   width: 300px;
 }
 
-.sign-up-form input {
+.form input {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 16px;
@@ -29,21 +29,17 @@
   border-radius: 4px;
 }
 
-.sign-up-form button {
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.form button {
+  @apply button-template
 }
 
-.sign-up-heading {
+.primary-heading {
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 40px;
 }
 
-.sign-in-container {
+.secondary-container {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -52,18 +48,23 @@
   width: 300px;
 }
 
-.sign-in-question {
+.secondary-question {
   font-size: 16px;
   align-self: flex-start;
 }
 
-.sign-in-container button {
+.secondary-container button {
   margin-top: 10px;
+  width: 150px;
+  align-self: flex-start;
+  @apply button-template
+}
+
+.button-template {
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 150px;
-  align-self: flex-start;
+  @apply bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300
 }

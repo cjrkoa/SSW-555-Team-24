@@ -1,7 +1,8 @@
+import React from "react";
 import { Fragment } from "react";
 import './SignUp.css';
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <Fragment>
       <div className="sign-up-page">

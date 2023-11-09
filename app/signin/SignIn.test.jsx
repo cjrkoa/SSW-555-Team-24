@@ -14,21 +14,25 @@ describe("SignIn Component", () => {
   it("renders sign-in page container", () => {
     const signInPage = container.querySelector(".sign-in-page");
     expect(signInPage).toBeInTheDocument();
+    expect(signInPage).toHaveClass("sign-in-page");
   });
 
   it("renders sign-in container", () => {
     const signInContainer = container.querySelector(".sign-in-container");
     expect(signInContainer).toBeInTheDocument();
+    expect(signInContainer).toHaveClass("sign-in-container");
   });
 
   it("renders sign-in heading with correct text", () => {
     const signInHeading = screen.getByRole("heading", { name: "Sign In" });
     expect(signInHeading).toBeInTheDocument();
+    expect(signInHeading).toHaveClass("sign-in-heading");
   });
 
   it("renders sign-in form", () => {
     const signInForm = container.querySelector(".sign-in-form");
     expect(signInForm).toBeInTheDocument();
+    expect(signInForm).toHaveClass("sign-in-form");
   });
 
   it("renders email input", () => {
@@ -49,11 +53,13 @@ describe("SignIn Component", () => {
   it("renders sign-up container", () => {
     const signUpContainer = container.querySelector(".sign-up-container");
     expect(signUpContainer).toBeInTheDocument();
+    expect(signUpContainer).toHaveClass("sign-up-container");
   });
 
   it("renders sign-up question with correct text", () => {
     const signUpQuestion = screen.getByText("Don't have an account?");
     expect(signUpQuestion).toBeInTheDocument();
+    expect(signUpQuestion).toHaveClass("sign-up-question");
   });
 
   it("renders create account button with correct text", () => {

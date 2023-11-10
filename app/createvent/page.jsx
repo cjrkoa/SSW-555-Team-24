@@ -11,49 +11,44 @@ export const AddEvent = () => {
     const [type, setType] = useState("");
     const [language, setLanguage] = useState("");
     const [currency, setCurrency] = useState('');
-    
-    const func = (x) => {
-        if(x <= 2){
-            return x;
-        }
-        return x * 2;
-    };
 
     return(
         <React.Fragment>
             <body role="createevent" />
             <h1>Enter information to create a new event below</h1>
-            <div class="grid gap-1 grid-cols-1 grid-rows-1">
-                <div class="inline-flex">
-                    <h1>name</h1>
-                    <input name="name" onChange={() => setName()} />
+            <div class="grid gap-1 grid-cols-2 grid-rows-1">
+                <div class="grid gap-3 grid-cols-1 grid-rows-1">
+                    <div class="inline-flex">
+                        <h1>Name</h1>
+                        <input name="name" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setName()} />
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Date</h1>
+                        <input name="date" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setDate()}/>
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Price</h1>
+                        <input name="price" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setPrice()}/>
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Category</h1>
+                        <input name="category" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setCategory()}/>
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Type</h1>
+                        <input name="type" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setType()}/>
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Language</h1>
+                        <input name="language" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setLangauge()}/>
+                    </div>
+                    <div class="inline-flex">
+                        <h1>Currency</h1>
+                        <input name="currency" class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={() => setCurrency()}/>
+                    </div>
+                        <button class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => console.log(name)}>Submit</button>
                 </div>
-                <div class="inline-flex">
-                    <h1>date</h1>
-                    <input name="date" onChange={() => setDate()}/>
-                </div>
-                <div class="inline-flex">
-                    <h1>price</h1>
-                    <input name="price" onChange={() => setPrice()}/>
-                </div>
-                <div class="inline-flex">
-                    <h1>category</h1>
-                    <input name="category" onChange={() => setCategory()}/>
-                </div>
-                <div class="inline-flex">
-                    <h1>type</h1>
-                    <input name="type" onChange={() => setType()}/>
-                </div>
-                <div class="inline-flex">
-                    <h1>language</h1>
-                    <input name="language" onChange={() => setLangauge()}/>
-                </div>
-                <div class="inline-flex">
-                    <h1>currency</h1>
-                    <input name="currency" onChange={() => setCurrency()}/>
-                </div>
-                
-                <button onClick={() => console.log(name)}>Submit</button>
+                <image></image>
             </div>
         </React.Fragment>
     );

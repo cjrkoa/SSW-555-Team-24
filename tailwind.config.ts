@@ -47,6 +47,15 @@ module.exports = {
       borderRadius: {
         '5xl': '40px',
       },
+      gridTemplateColumns: {
+        // Define a 7 column grid layout
+        '7': 'repeat(7, minmax(0, 1fr))',
+      },
+      gridColumn: {
+        // Span definitions for 3/7 and 4/7
+        'span-3/7': 'span 3 / span 3',
+        'span-4/7': 'span 4 / span 4',
+      },
     },
   },
   plugins: [],

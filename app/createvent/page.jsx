@@ -91,13 +91,13 @@ export const AddEvent = () => {
                             class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" 
                             onClick={() => {
                                 const event = {
-                                    "name": name,
-                                    "date": date,
-                                    "price": price,
-                                    "category": category,
-                                    "type": type,
-                                    "language": language,
-                                    "currency": currency,
+                                    name: name,
+                                    date: date,
+                                    price: price,
+                                    category: category,
+                                    type: type,
+                                    language: language,
+                                    currency: currency,
                                 };
                                 //replace with submission to database when avalible
                                 console.log(event);

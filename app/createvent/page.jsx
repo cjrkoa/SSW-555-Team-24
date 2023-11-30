@@ -12,10 +12,6 @@ export const AddEvent = () => {
     const [language, setLanguage] = useState("English");
     const [currency, setCurrency] = useState("USD");
 
-    const handleChange = (event, setter) => {
-        setter(event.target.value);
-    }
-
     return(
         <Fragment>
             <h1 class="p-1 text-center">Enter information to create a new event below</h1>
@@ -28,7 +24,8 @@ export const AddEvent = () => {
                             name="name" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={name}
-                            onChange={e => setName(e.target.value)} 
+                            onChange={e => setName(e.target.value)}
+                            required 
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -39,6 +36,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={date}
                             onChange={e => setDate(e.target.value)}
+                            required
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -49,6 +47,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={price}
                             onChange={e => setPrice(e.target.value)}
+                            required
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -58,6 +57,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={category}
                             onChange={e => setCategory(e.target.value)}
+                            required
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -67,6 +67,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={type}
                             onChange={e => setType(e.target.value)}
+                            required
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -76,6 +77,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={language}
                             onChange={e => setLanguage(e.target.value)}
+                            required
                         />
                     </div>
                     <div class="inline-flex gap-2 p-1 w-full">
@@ -85,6 +87,7 @@ export const AddEvent = () => {
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             value={currency}
                             onChange={e => setCurrency(e.target.value)}
+                            required
                         />
                     </div>
                         <button 
@@ -99,7 +102,7 @@ export const AddEvent = () => {
                                     language: language,
                                     currency: currency,
                                 };
-                                //replace with submission to database when avalible
+                                //TODO: replace with submission to database when avalible
                                 console.log(event);
                             }}>
                                 Submit

@@ -18,12 +18,12 @@ export const AddEvent = () => {
 
     return(
         <Fragment>
-            <body role="createevent" />
-            <h1>Enter information to create a new event below</h1>
-            <div class="grid gap-1 grid-cols-2 grid-rows-1">
-                <div class="grid gap-3 grid-cols-1 grid-rows-1">
-                    <div class="inline-flex gap-2">
-                        <h1>Name</h1>
+            <h1 class="p-1 text-center">Enter information to create a new event below</h1>
+            <div class="grid gap-1 grid-cols-5 grid-rows-1">
+                <div></div>
+                <div class="col-span-3 p-5">
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Name</h1>
                         <input 
                             name="name" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -31,8 +31,8 @@ export const AddEvent = () => {
                             onChange={e => setName(e.target.value)} 
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Date</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Date</h1>
                         <input 
                             name="date"
                             type="date" 
@@ -41,8 +41,8 @@ export const AddEvent = () => {
                             onChange={e => setDate(e.target.value)}
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Price</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Price</h1>
                         <input 
                             name="price"
                             type="number" 
@@ -51,8 +51,8 @@ export const AddEvent = () => {
                             onChange={e => setPrice(e.target.value)}
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Category</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Category</h1>
                         <input 
                             name="category" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -60,8 +60,8 @@ export const AddEvent = () => {
                             onChange={e => setCategory(e.target.value)}
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Type</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Type</h1>
                         <input 
                             name="type" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -69,8 +69,8 @@ export const AddEvent = () => {
                             onChange={e => setType(e.target.value)}
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Language</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Language</h1>
                         <input 
                             name="language" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -78,8 +78,8 @@ export const AddEvent = () => {
                             onChange={e => setLanguage(e.target.value)}
                         />
                     </div>
-                    <div class="inline-flex gap-2">
-                        <h1>Currency</h1>
+                    <div class="inline-flex gap-2 p-1 w-full">
+                        <h1 class="p-2">Currency</h1>
                         <input 
                             name="currency" 
                             class="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -88,7 +88,7 @@ export const AddEvent = () => {
                         />
                     </div>
                         <button 
-                            class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" 
+                            class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full" 
                             onClick={() => {
                                 const event = {
                                     name: name,

@@ -4,7 +4,7 @@ const Card = ({event}) => {
     return(
         <Fragment>
             <div className="grid grid-cols-1 gap-1 p-3">
-                <div className="lg:col-span-1 flex justify-center items-center">
+                <div className="col-span-1 flex justify-center items-center">
                     <div className="bg-gray-200 rounded-lg p-10 text-left w-screen h-full">
                         <div className="grid grid-cols-2">
                             <h1 className="text-lg font-bold">Name:</h1> 

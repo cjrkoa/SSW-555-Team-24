@@ -1,22 +1,42 @@
 import React, { Fragment } from 'react';
 
-const Card = (props) => {
-    
+const Card = ({event}) => {
     return(
         <Fragment>
             <div className="grid grid-cols-1 gap-1 p-3">
                 <div className="lg:col-span-1 flex justify-center items-center">
                     <div className="bg-gray-200 rounded-lg p-10 text-left w-screen h-full">
-                        <h1>Name: {props.name}</h1>
-                        <h1>Date: {props.date}</h1>
-                        <h1>Price: {props.price}</h1>
-                        <h1>Category: {props.category}</h1>
-                        <h1>Type: {props.type}</h1>
-                        <h1>Language: {props.language}</h1>
-                        <h1>Currency: {props.currency}</h1>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Name:</h1> 
+                            <h1 className="p-0.5">{event.name}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Date:</h1> 
+                            <h1 className="p-0.5">{event.date}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Price:</h1> 
+                            <h1 className="p-0.5">{event.price}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Category:</h1> 
+                            <h1 className="p-0.5">{event.category}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Type:</h1> 
+                            <h1 className="p-0.5">{event.type}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Language:</h1> 
+                            <h1 className="p-0.5">{event.language}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Currency:</h1> 
+                            <h1 className="p-0.5">{event.currency}</h1>
+                        </div>
                         <button 
                             className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-                            onClick={ console.log(props) }
+                            onClick={() => console.log(props) }
                             >    
                                 Register
                         </button>

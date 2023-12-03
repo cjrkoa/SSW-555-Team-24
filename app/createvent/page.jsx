@@ -12,6 +12,21 @@ export const AddEvent = () => {
     const [language, setLanguage] = useState("English");
     const [currency, setCurrency] = useState("USD");
 
+    async function onSubmit(e, event) {
+         // When a post request is sent to the create url, we'll add a new record to the database.
+        await fetch("mongodb+srv://jocampo:juan_SSW555@clusterssw555.yvtizbm.mongodb.net/Events", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(event),
+        })
+        .catch(error => {
+            window.alert(error);
+            return;
+        });
+    }
+
     return(
         <Fragment>
             <h1 class="p-1 text-center">Enter information to create a new event below</h1>
@@ -102,8 +117,8 @@ export const AddEvent = () => {
                                     language: language,
                                     currency: currency,
                                 };
-                                //TODO: replace with submission to database when avalible
                                 console.log(event);
+                                onSubmit(event);
                             }}>
                                 Submit
                         </button>

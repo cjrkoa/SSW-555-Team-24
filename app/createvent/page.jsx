@@ -126,7 +126,6 @@ export const AddEvent = () => {
                                     language: language,
                                     currency: currency,
                                 };
-                                //TODO: replace with submission to database when avalible
                                 console.log(event);
                                 
                             }*/

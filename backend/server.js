@@ -7,6 +7,7 @@ const mongoDB = "mongodb+srv://jocampo:juan_SSW555@clusterssw555.yvtizbm.mongodb
 
 const Schema = mongoose.Schema;
 const event = new Schema({
+    name: String,
     date : Date,
     price: Number,
     category: String,
@@ -52,14 +53,16 @@ app.post("/newevent", async (req,res) => {
     try{    
         mongoose.connect(mongoDB);
         console.log(req.body);
+        let name = req.body.name;
         let date = req.body.date;
         let price = req.body.price;
         let category = req.body.category;
         let type = req.body.type;
         let language = req.body.language;
-        let currency = req.body.currency;
+        let currency = req.body.currency; 
 
         await Event.create({
+            name : name,
             date : date,
             price : price,
             category : category,

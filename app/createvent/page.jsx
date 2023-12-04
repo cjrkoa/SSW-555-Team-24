@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import axios, { Axios, AxiosResponse } from 'axios';
 import { Fragment, useState } from "react";
 
 export const AddEvent = () => {
@@ -11,6 +12,26 @@ export const AddEvent = () => {
     const [type, setType] = useState("");
     const [language, setLanguage] = useState("English");
     const [currency, setCurrency] = useState("USD");
+
+    const eventSubmit = async (event) => {
+        event.preventDefault();
+        const data = {
+            name: name,
+            date: date,
+            price: price,
+            category: category,
+            type: type,
+            language: language,
+            currency: currency,
+        };
+        try {
+            const response = await axios.post("http://localhost:5000/newevent", data);
+            console.log("Message:", response.data);
+        } catch (error) {
+            const err =  error;
+            console.log("Error", err);
+        }
+    };
 
     return(
         <Fragment>
@@ -92,7 +113,10 @@ export const AddEvent = () => {
                     </div>
                         <button 
                             class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full" 
-                            onClick={() => {
+                            onClick={
+                                eventSubmit
+                                /*() => {
+                                
                                 const event = {
                                     name: name,
                                     date: date,
@@ -104,7 +128,9 @@ export const AddEvent = () => {
                                 };
                                 //TODO: replace with submission to database when avalible
                                 console.log(event);
-                            }}>
+                                
+                            }*/
+                            }>
                                 Submit
                         </button>
                 </div>

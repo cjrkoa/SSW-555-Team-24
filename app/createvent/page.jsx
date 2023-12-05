@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import axios, { Axios, AxiosResponse } from 'axios';
+import axios from 'axios';
 import { Fragment, useState } from "react";
 
 export default function AddEvent() {

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import Card from '../../components/Card';
 
 const axios = require("axios");
@@ -19,11 +19,11 @@ export default function findevent() {
         currency: "USD",
     };
 
-    useEffect(() => {
+    /*useEffect(() => {
         axios.get("http://localhost:5000/event").then(res => {
           setEvents(res.data);
         })
-      }, [])
+      }, [])*/
 
     return (
         <Fragment>

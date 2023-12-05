@@ -1,11 +1,13 @@
 "use client"
 
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 import Card from '../../components/Card';
 
 export default function findevent() {
     const [search, setSearch] = useState("Enter Event Name Here");
-    
+    const [events, setEvents] = useState([]);
+
     const event = {
         name: "Example",
         date: "05-14-2024",
@@ -15,6 +17,12 @@ export default function findevent() {
         language: "English",
         currency: "USD",
     };
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/event").then(res => {
+          setEvents(res.data);
+        })
+      }, [])
 
     return (
         <Fragment>
@@ -78,7 +86,7 @@ export default function findevent() {
                             </label>
                         </div>
                             <button 
-                            class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full col-span-2" 
+                            className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full col-span-2" 
                             onClick={() => {
                                 console.log(event);
                             }}>

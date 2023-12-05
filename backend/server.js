@@ -76,5 +76,16 @@ app.post("/newevent", async (req,res) => {
         console.log(err)
         res.send(err)
     }
-
 });
+
+app.get("/events", async (req,res) => {
+    try {
+        await Event.find()
+        .then(data => res.json(data))
+        .catch(error => res.json(error))
+    }
+    catch (err) {
+        console.log(err);
+        res.send(err);
+    }
+})

@@ -19,6 +19,7 @@ export default function findevent() {
     };
 
     useEffect(() => {
+        axios = require("axios")
         axios.get("http://localhost:5000/event").then(res => {
           setEvents(res.data);
         })

@@ -25,6 +25,7 @@ export default function AddEvent() {
             currency: currency,
         };
         try {
+            axios = require("axios");
             const response = await axios.post("http://localhost:5000/newevent", data);
             console.log("Message:", response.data);
         } catch (error) {

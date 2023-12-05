@@ -1,8 +1,9 @@
 "use client"
 
 import React from 'react';
-import axios from 'axios';
 import { Fragment, useState } from "react";
+
+const axios = require("axios");
 
 export default function AddEvent() {
     const [name, setName] = useState("");

@@ -1,8 +1,9 @@
 "use client"
 
 import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
 import Card from '../../components/Card';
+
+const axios = require("axios");
 
 export default function findevent() {
     const [search, setSearch] = useState("Enter Event Name Here");
@@ -19,7 +20,6 @@ export default function findevent() {
     };
 
     useEffect(() => {
-        axios = require("axios")
         axios.get("http://localhost:5000/event").then(res => {
           setEvents(res.data);
         })

@@ -4,7 +4,7 @@ import React from 'react';
 import axios, { Axios, AxiosResponse } from 'axios';
 import { Fragment, useState } from "react";
 
-export const AddEvent = () => {
+export default function AddEvent() {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [price, setPrice] = useState(0);
@@ -121,4 +121,3 @@ export const AddEvent = () => {
         </Fragment>
     );
 }
-export default AddEvent;

@@ -5,7 +5,7 @@ import Card from '../../components/Card';
 
 const axios = require("axios");
 
-export default function findevent() {
+export default function FindEvent() {
     const [search, setSearch] = useState("Enter Event Name Here");
     const [events, setEvents] = useState([]);
 

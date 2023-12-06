@@ -9,9 +9,10 @@ const Schema = mongoose.Schema;
 const event = new Schema({
     name: String,
     date : Date,
+    location: String,
     price: Number,
     category: String,
-    type: String,
+    ages: String,
     language: String,
     currency: String
 }, { collection: "events" });
@@ -55,18 +56,20 @@ app.post("/newevent", async (req,res) => {
         console.log(req.body);
         let name = req.body.name;
         let date = req.body.date;
+        let location = req.body.location;
         let price = req.body.price;
         let category = req.body.category;
-        let type = req.body.type;
+        let ages = req.body.ages;
         let language = req.body.language;
         let currency = req.body.currency; 
 
         await Event.create({
             name : name,
             date : date,
+            location : location,
             price : price,
             category : category,
-            type : type,
+            ages : ages,
             language : language,
             currency : currency
         });

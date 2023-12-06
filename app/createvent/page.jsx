@@ -8,9 +8,10 @@ const axios = require("axios");
 export default function AddEvent() {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
+    const [location, setLocation] = useState("");
     const [price, setPrice] = useState(0);
     const [category, setCategory] = useState("");
-    const [type, setType] = useState("");
+    const [ages, setAges] = useState("");
     const [language, setLanguage] = useState("English");
     const [currency, setCurrency] = useState("USD");
 
@@ -19,9 +20,10 @@ export default function AddEvent() {
         const data = {
             name: name,
             date: date,
+            location: location,
             price: price,
             category: category,
-            type: type,
+            ages: ages,
             language: language,
             currency: currency,
         };
@@ -62,6 +64,15 @@ export default function AddEvent() {
                         />
                     </div>
                     <div className="inline-flex gap-2 p-1 w-full">
+                        <h1 className="p-2">Location</h1>
+                        <input 
+                            name="location" 
+                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onChange={e => setLocation(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="inline-flex gap-2 p-1 w-full">
                         <h1 className="p-2">Price</h1>
                         <input 
                             name="price"
@@ -83,12 +94,12 @@ export default function AddEvent() {
                         />
                     </div>
                     <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Type</h1>
+                        <h1 className="p-2">Ages</h1>
                         <input 
-                            name="type" 
+                            name="ages" 
                             className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            value={type}
-                            onChange={e => setType(e.target.value)}
+                            value={ages}
+                            onChange={e => setAges(e.target.value)}
                             required
                         />
                     </div>

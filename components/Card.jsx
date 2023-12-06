@@ -15,6 +15,10 @@ const Card = ({event}) => {
                             <h1 className="p-0.5">{event.date}</h1>
                         </div>
                         <div className="grid grid-cols-2">
+                            <h1 className="text-lg font-bold">Location:</h1> 
+                            <h1 className="p-0.5">{event.location}</h1>
+                        </div>
+                        <div className="grid grid-cols-2">
                             <h1 className="text-lg font-bold">Price:</h1> 
                             <h1 className="p-0.5">{event.price}</h1>
                         </div>
@@ -23,8 +27,8 @@ const Card = ({event}) => {
                             <h1 className="p-0.5">{event.category}</h1>
                         </div>
                         <div className="grid grid-cols-2">
-                            <h1 className="text-lg font-bold">Type:</h1> 
-                            <h1 className="p-0.5">{event.type}</h1>
+                            <h1 className="text-lg font-bold">Ages:</h1> 
+                            <h1 className="p-0.5">{event.ages}</h1>
                         </div>
                         <div className="grid grid-cols-2">
                             <h1 className="text-lg font-bold">Language:</h1> 

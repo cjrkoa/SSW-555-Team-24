@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Fragment, useState } from "react";
+import "../styles/Createvent.css";
 
 const axios = require("axios");
 
@@ -38,97 +39,96 @@ export default function AddEvent() {
 
     return(
         <Fragment>
-            <h1 className="p-1 text-center">Enter information to create a new event below</h1>
-            <div className="grid gap-1 grid-cols-5 grid-rows-1">
-                <div></div>
-                <div className="col-span-3 p-5">
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Name</h1>
+            <h1 className="Enter-Info">Enter information to create a new event below</h1>
+            <div className="Div-1">
+                <form action="" className='Form'>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Name</label>
                         <input 
                             name="name" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={name}
                             onChange={e => setName(e.target.value)}
                             required 
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Date</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Date</label>
                         <input 
                             name="date"
                             type="date" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={date}
                             onChange={e => setDate(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Location</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Location</label>
                         <input 
                             name="location" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="Input-Box"
                             onChange={e => setLocation(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Price</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Price</label>
                         <input 
                             name="price"
                             type="number" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={price}
                             onChange={e => setPrice(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Category</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Category</label>
                         <input 
                             name="category" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={category}
                             onChange={e => setCategory(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Ages</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Ages</label>
                         <input 
                             name="ages" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={ages}
                             onChange={e => setAges(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Language</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Language</label>
                         <input 
                             name="language" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={language}
                             onChange={e => setLanguage(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="inline-flex gap-2 p-1 w-full">
-                        <h1 className="p-2">Currency</h1>
+                    <div className="Field-Wrap">
+                        <label className="Label-Width">Currency</label>
                         <input 
                             name="currency" 
-                            className="bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            className="Input-Box" 
                             value={currency}
                             onChange={e => setCurrency(e.target.value)}
                             required
                         />
                     </div>
-                        <button 
-                            className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full" 
-                            onClick={ eventSubmit }>
-                                Submit
-                        </button>
-                </div>
+                    <button 
+                        className="Submit-Button" 
+                        onClick={ eventSubmit }>
+                            Submit
+                    </button>
+                </form>
             </div>
         </Fragment>
     );

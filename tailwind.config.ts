@@ -8,6 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'custom-sky': '#004E64',
+        'custom-teal': '#47E5BC',
         green: {
           50: '#30AF5B',
           90: '#292C27',

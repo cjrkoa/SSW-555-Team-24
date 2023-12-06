@@ -5,7 +5,7 @@ import concert from './image/concert-stock.jpg'
 export default function Home() {
   return (
     <main className="flex-1">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-12 p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-12 p-24">
         {/* Box 1 - Top Left */}
         <div className="lg:col-span-4 flex justify-center items-center">
           <div className="bg-gray-200 rounded-lg p-8 text-center w-full h-full">

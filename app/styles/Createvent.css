@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Enter-Info {
+    @apply  text-center py-4 font-bold text-3xl;
+}
+
+.Div-1 {
+    @apply  mx-auto max-w-4xl;
+}
+
+.Form {
+    @apply space-y-4 py-4;
+}
+
+.Field-Wrap {
+    @apply flex items-center;
+}
+
+.Label-Width {
+    @apply w-24;
+}
+
+.Input-Box {
+    @apply flex-1 bg-stone-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5;
+}
+
+.Submit-Button {
+    @apply mt-4 bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full w-full;
+}

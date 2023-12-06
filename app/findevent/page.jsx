@@ -2,6 +2,7 @@
 
 import React, { Fragment, useState, useEffect, Children } from 'react';
 import Card from '../../components/Card';
+import "../styles/Findevent.css";
 
 const axios = require("axios");
 
@@ -28,7 +29,7 @@ export default function FindEvent() {
                         onChange={e => setSearch(e.target.value)} 
                         />
                     <button
-                        className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+                        className="bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full"
                         onClick={() => console.log(search) }
                     >
                         Search
@@ -58,7 +59,7 @@ export default function FindEvent() {
                         />
                     </div>
                         <button 
-                        className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full col-span-2" 
+                        className="bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full w-full col-span-2" 
                         onClick={() => {
                             useEffect()
                         }}>

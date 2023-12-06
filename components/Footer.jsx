@@ -1,3 +1,5 @@
+import ".//styles/components.css";
+
 const LINKS = [
   {
     title: "Connect",
@@ -25,7 +27,7 @@ const LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer mt-auto">
       <div className="content">
         <h5>SHAREVENT</h5>
         <div className="links">

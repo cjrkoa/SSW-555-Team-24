@@ -17,5 +17,5 @@ const BackgroundEllipses = () => {
       </div>
     );
   };
-  
-  export default BackgroundEllipses;
+
+export default BackgroundEllipses;

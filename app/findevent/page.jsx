@@ -70,7 +70,7 @@ export default function FindEvent({filter, query}) {
                         <button 
                         className="bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full w-full col-span-2" 
                         onClick={() => {
-                            console.log("Apply Filters");
+                            console.log("Apply Filters")
                         }}>
                             Apply Filters
                     </button>

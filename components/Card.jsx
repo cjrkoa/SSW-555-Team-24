@@ -39,9 +39,8 @@ const Card = ({event}) => {
                             <h1 className="p-0.5">{event.currency}</h1>
                         </div>
                         <button 
-                            className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-                            onClick={
-                                () => console.log(event) }
+                            className="bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full"
+                            onClick={() => console.log(props) }
                             >    
                                 Register
                         </button>

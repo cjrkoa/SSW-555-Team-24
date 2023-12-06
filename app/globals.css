@@ -14,9 +14,12 @@ html, body {
   height: 100%;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: Inter;
-  display: flex;
   flex-direction: column;
 }
 

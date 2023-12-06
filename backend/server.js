@@ -14,7 +14,7 @@ const event = new Schema({
     type: String,
     language: String,
     currency: String
-});
+}, { collection: "events" });
 
 const Event = mongoose.model("Event", event);
 
@@ -78,14 +78,16 @@ app.post("/newevent", async (req,res) => {
     }
 });
 
-app.get("/events", async (req,res) => {
+app.get("/events", async (req, res) => {
     try {
-        await Event.find()
-        .then(data => res.json(data))
-        .catch(error => res.json(error))
+        mongoose.connect(mongoDB);
+        const data = await Event.find();
+        console.log(data);
+        res.json(data);
+    } catch (error) {
+        console.error("Error fetching events:", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-    catch (err) {
-        console.log(err);
-        res.send(err);
-    }
-})
+});
+
+module.exports = app;

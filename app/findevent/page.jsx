@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect, Children } from 'react';
 import Card from '../../components/Card';
 
 const axios = require("axios");
@@ -9,21 +9,12 @@ export default function FindEvent() {
     const [search, setSearch] = useState("Enter Event Name Here");
     const [events, setEvents] = useState([]);
 
-    const event = {
-        name: "Example",
-        date: "05-14-2024",
-        price: "0",
-        category: "University",
-        type: "Graduation",
-        language: "English",
-        currency: "USD",
-    };
-
-    /*useEffect(() => {
-        axios.get("http://localhost:5000/event").then(res => {
-          setEvents(res.data);
-        })
-      }, [])*/
+    useEffect(() => {
+        axios.get("http://localhost:5000/events").then(res => {
+            setEvents(res.data);
+            console.log(res.data);
+        });
+    }, []);
 
     return (
         <Fragment>
@@ -44,9 +35,9 @@ export default function FindEvent() {
                 </div>
                 <div className="col-span-3">
                     <div className="grid gap-3 grid-cols-3 grid-rows-4">
-                        <Card 
-                            event={event}
-                            />
+                    {Children.map(events, event =>
+                        <Card event={event} />    
+                    )}
                     </div>
                 </div>
                 <div className="bg-gray-200 rounded-lg p-5 text-left h-full">

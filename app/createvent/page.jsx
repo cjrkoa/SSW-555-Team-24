@@ -31,6 +31,7 @@ export default function AddEvent() {
         try {
             const response = await axios.post("http://localhost:5000/newevent", data);
             console.log("Message:", response.data);
+            alert("Event Posted")
         } catch (error) {
             const err =  error;
             console.log("Error", err);

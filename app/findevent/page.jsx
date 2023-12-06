@@ -6,17 +6,26 @@ import "../styles/Findevent.css";
 
 const axios = require("axios");
 
-export default function FindEvent() {
+export default function FindEvent({filter, query}) {
     const [search, setSearch] = useState("Enter Event Name Here");
     const [events, setEvents] = useState([]);
     const [type, setType] = useState("Filter By Type");
     const [category, setCategory] = useState("Filter By Category");
 
-    useEffect(() => {
-        axios.get("http://localhost:5000/events").then(res => {
-            setEvents(res.data);
-            console.log(res.data);
-        });
+    useEffect((filter, query) => {
+        switch(filter) {
+        case "name":
+            axios.get("http://localhost:5000/events:name", {params: {name: query}}).then(res => {
+                setEvents(res.data);
+                console.log(res.data);
+            });
+            break;
+        default:
+            axios.get("http://localhost:5000/events").then(res => {
+                setEvents(res.data);
+                console.log(res.data);
+            });
+        }
     }, []);
 
     return (
@@ -61,7 +70,7 @@ export default function FindEvent() {
                         <button 
                         className="bg-yellow-200 hover:bg-yellow-300 hover:text-black transition duration-300 font-semibold py-2 px-4 rounded-full w-full col-span-2" 
                         onClick={() => {
-                            useEffect()
+                            console.log("Apply Filters");
                         }}>
                             Apply Filters
                     </button>

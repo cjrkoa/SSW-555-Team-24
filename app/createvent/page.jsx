@@ -35,6 +35,7 @@ export default function AddEvent() {
             const err =  error;
             console.log("Error", err);
         }
+        window.location.reload();
     };
 
     return(

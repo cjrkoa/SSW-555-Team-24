@@ -93,4 +93,17 @@ app.get("/events", async (req, res) => {
     }
 });
 
+app.get("/events:name", async (req, res) => {
+    try {
+        mongoose.connect(mongoDB);
+        console.log(req.body)
+        const data = await Event.find(req.body.name);
+        console.log(data);
+        res.json(data);
+    } catch (error) {
+        console.error("Error fetching events:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
 module.exports = app;

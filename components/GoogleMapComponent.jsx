@@ -39,7 +39,7 @@ const GoogleMapComponent = () => {
           const locations = [];
           const events = res.data;
           console.log(res.data[0]['location']);
-          setKey("AIzaSyCYhjWnb2yRicmjTn1kR2HWUks6ifVmXMo");
+          setKey("#######################");
           for(const event of events){
             if(event['location'] != "Online" && event['location'] != "Zoom"){
               fromAddress(event['location'])
@@ -58,7 +58,7 @@ const GoogleMapComponent = () => {
   }, []);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCYhjWnb2yRicmjTn1kR2HWUks6ifVmXMo',
+    googleMapsApiKey: '######################',
     libraries,
   });
   const markers = Events.map((latlng) => <MarkerF position={latlng} />);

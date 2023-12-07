@@ -2,6 +2,7 @@
 
 import React, { Fragment, useState, useEffect, Children } from 'react';
 import Card from '../../components/Card';
+import GoogleMapComponent from '../../components/GoogleMapComponent';
 import "../styles/Findevent.css";
 
 const axios = require("axios");
@@ -17,13 +18,13 @@ export default function FindEvent({filter, query}) {
         case "name":
             axios.get("http://localhost:5000/events:name", {params: {name: query}}).then(res => {
                 setEvents(res.data);
-                console.log(res.data);
+                //console.log(res.data);
             });
             break;
         default:
             axios.get("http://localhost:5000/events").then(res => {
                 setEvents(res.data);
-                console.log(res.data);
+                //console.log(res.data);
             });
         }
     }, []);
@@ -44,6 +45,10 @@ export default function FindEvent({filter, query}) {
                         Search
                     </button>
                 </div>
+                <div className='col-span-4 gap-2'>
+                    <GoogleMapComponent/>
+                </div>
+
                 <div className="col-span-3">
                     <div className="grid gap-3 grid-cols-3 grid-rows-4">
                     {Children.map(events.keys(), key =>

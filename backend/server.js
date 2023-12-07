@@ -17,8 +17,13 @@ const event = new Schema({
     currency: String
 }, { collection: "events" });
 
-const Event = mongoose.model("Event", event);
+const signup = new Schema({
+    email: String,
+    eventName: String, 
+}, { collection: "signup" });
 
+const Event = mongoose.model("Event", event);
+const Signup = mongoose.model("Signup", signup);
 
 const express = require("express"),
        app = express(),
@@ -74,6 +79,25 @@ app.post("/newevent", async (req,res) => {
             currency : currency
         });
         console.log("Event created")
+        res.send({message: "Success"})
+    } catch (err){
+        console.log(err)
+        res.send(err)
+    }
+});
+
+app.post("/newsignup", async (req,res) => {
+    try{    
+        mongoose.connect(mongoDB);
+        console.log(req.body);
+        let email = req.body.email;
+        let eventName = req.body.eventName;
+
+        await Signup.create({
+            email : email,
+            eventName : eventName 
+        });
+        console.log("Registered for Event")
         res.send({message: "Success"})
     } catch (err){
         console.log(err)

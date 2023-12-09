@@ -24,9 +24,7 @@ const Navbar = () => {
           {/** Secondary Nav Bar Section */}
           <div className="flex items-center space-x-5">
             {/** Reference to the sign in page */}
-            <a href="/signin" className="navbar-text">Sign In</a>
-            {/** Reference to the sign up page */}
-            <a href="/signup" className="navbar-text bg-yellow-200 rounded hover:bg-yellow-300 hover:text-black transition duration-300">Sign Up</a>
+            <a href="/signin" className="navbar-text bg-red-500 rounded hover:bg-red-900 hover:text-black transition duration-300">Logout</a>
           </div>
         </div>
       </div>

@@ -4,13 +4,31 @@ import React from "react";
 import { Fragment, useState } from "react";
 import "../styles/SignIn_SignUp.css";
 
+const axios = require("axios");
+
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   
+  const submitUser = async (event) => {
+    event.preventDefault();
+    const user = {
+      username: email,
+      password: password,
+    };
+    axios.post("http://localhost:5000/users", user)
+      .then(response => {
+        console.log(response);
+        if(response.data) {
+          alert("Successfully Registered, Redirecting To Login Page");
+          this.setState({
+            redirectTo: "/signin"
+          });
+        } else { console.log("Error Registering Account")}
+      }).catch(error => {console.log(error)});
+  }
+
   return (
     <Fragment>
       <div className="page-container">
@@ -38,31 +56,16 @@ export default function SignUp() {
               onChange={e => setConfirmPassword(e.target.value)} 
               required 
             />
-            <input 
-              name="First Name" 
-              placeholder="First Name"
-              onChange={e => setFirstName(e.target.value)} 
-              required 
-            />
-            <input 
-              name="Last Name" 
-              placeholder="Last Name"
-              onChange={e => setLastName(e.target.value)} 
-              required 
-            />
             <button 
               type="submit"
               onClick={() => {
                 const user = {
                   email: email,
                   password: password,
-                  firstName: firstName,
-                  lastName: lastName,
                 };
 
                 if(password === confirmPassword){ 
-                  //TODO: replace with submission to database when avalible
-                  console.log(user);
+                  submitUser();
                 } 
                 else alert("Passwords Do Not Match");
               }}

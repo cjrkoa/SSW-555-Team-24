@@ -1,29 +1,16 @@
 const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const bcrypt = require('bcryptjs');
+
+const Event = require("./database/models/event");
+const Signup = require("./database/models/signup");
+const User = require("./database/models/user");
 
 mongoose.set("strictQuery", false);
 
 // Replace with link to our actual DB
 const mongoDB = "mongodb+srv://jocampo:juan_SSW555@clusterssw555.yvtizbm.mongodb.net/Events";
-
-const Schema = mongoose.Schema;
-const event = new Schema({
-    name: String,
-    date : Date,
-    location: String,
-    price: Number,
-    category: String,
-    ages: String,
-    language: String,
-    currency: String
-}, { collection: "events" });
-
-const signup = new Schema({
-    email: String,
-    eventName: String, 
-}, { collection: "signup" });
-
-const Event = mongoose.model("Event", event);
-const Signup = mongoose.model("Signup", signup);
 
 const express = require("express"),
        app = express(),
@@ -32,6 +19,8 @@ const express = require("express"),
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(cors({
     credentials: true,
@@ -40,6 +29,24 @@ app.use(cors({
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
+app.use(
+    session({
+        secret: "E4CBXv0zf1",
+        resave: false,
+        saveUninitialized: false
+    })
+);
+app.use( (req, res, next) => {
+    console.log('req.session', req.session);
+    next()
+});
+
+app.post('/users', (req, res) => {
+    console.log('user signup');
+    req.session.username = req.body.username;
+    res.end()
+});
+
 app.listen(port, () => console.log("Backend server live on " + port));
 
 app.get("/", (req, res) => {
@@ -79,25 +86,6 @@ app.post("/newevent", async (req,res) => {
             currency : currency
         });
         console.log("Event created")
-        res.send({message: "Success"})
-    } catch (err){
-        console.log(err)
-        res.send(err)
-    }
-});
-
-app.post("/newsignup", async (req,res) => {
-    try{    
-        mongoose.connect(mongoDB);
-        console.log(req.body);
-        let email = req.body.email;
-        let eventName = req.body.eventName;
-
-        await Signup.create({
-            email : email,
-            eventName : eventName 
-        });
-        console.log("Registered for Event")
         res.send({message: "Success"})
     } catch (err){
         console.log(err)

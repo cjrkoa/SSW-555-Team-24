@@ -4,10 +4,32 @@ import React from "react";
 import { Fragment, useState } from "react";
 import "../styles/SignIn_SignUp.css";
 
+const axios = require("axios");
+
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
+  const login = async () => {
+    axios.post("users/login", {
+      username: email,
+      password: password
+    })
+    .then(response => {
+      console.log(response)
+      if(response.status === 200) {
+        this.props.updateUser({
+          loggedIn: true,
+          username: response.data.username
+        })
+        
+        this.setState({
+          redirectTo: "/"
+        })
+      }
+    }).catch(error => { console.log(error) })
+  }
+
   return (
     <Fragment>
       <div className="page-container">
@@ -31,13 +53,7 @@ export default function SignIn() {
             <button 
               type="submit"
               onClick={() => {
-                const user = {
-                  email: email,
-                  password: password,
-                };
-
-                //TODO: replace with user verification when avalible
-                console.log(user);
+                login();
               }}
             >
               Sign In

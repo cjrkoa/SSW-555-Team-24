@@ -12,7 +12,6 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   
   const submitUser = async (event) => {
-    event.preventDefault();
     const user = {
       username: email,
       password: password,
@@ -20,13 +19,14 @@ export default function SignUp() {
     axios.post("http://localhost:5000/users", user)
       .then(response => {
         console.log(response);
+        alert(response);
         if(response.data) {
           alert("Successfully Registered, Redirecting To Login Page");
           this.setState({
             redirectTo: "/signin"
           });
-        } else { console.log("Error Registering Account")}
-      }).catch(error => {console.log(error)});
+        } else { console.log("Error Registering Account") }
+      }).catch(error => {alert(error)});
   }
 
   return (
@@ -59,11 +59,6 @@ export default function SignUp() {
             <button 
               type="submit"
               onClick={() => {
-                const user = {
-                  email: email,
-                  password: password,
-                };
-
                 if(password === confirmPassword){ 
                   submitUser();
                 } 

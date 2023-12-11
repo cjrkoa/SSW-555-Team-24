@@ -41,10 +41,18 @@ app.use( (req, res, next) => {
     next()
 });
 
-app.post('/users', (req, res) => {
+app.post('/users', async (req, res) => {
+    mongoose.connect(mongoDB);
     console.log('user signup');
     req.session.username = req.body.username;
-    res.end()
+    req.session.password = req.body.password;
+
+    await User.create({
+        username: req.session.username,
+        password: req.session.password,
+    });
+
+    res.end();
 });
 
 app.listen(port, () => console.log("Backend server live on " + port));

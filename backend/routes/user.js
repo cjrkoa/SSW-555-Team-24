@@ -17,3 +17,5 @@ router.post(
         res.send(userInfo);
     }
 )
+
+module.exports = router;

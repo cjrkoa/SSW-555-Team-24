@@ -19,6 +19,13 @@ const express = require("express"),
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
+app.use(
+    session({
+        secret: "E4CBXv0zf1",
+        resave: false,
+        saveUninitialized: false
+    })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -29,13 +36,7 @@ app.use(cors({
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
-app.use(
-    session({
-        secret: "E4CBXv0zf1",
-        resave: false,
-        saveUninitialized: false
-    })
-);
+
 app.use( (req, res, next) => {
     console.log('req.session', req.session);
     next()

@@ -7,26 +7,26 @@ import "../styles/SignIn_SignUp.css";
 const axios = require("axios");
 
 export default function SignUp() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   
   const submitUser = async (event) => {
+    event.preventDefault();
     const user = {
-      username: email,
+      username: username,
       password: password,
     };
     axios.post("http://localhost:5000/users", user)
       .then(response => {
         console.log(response);
-        alert(response);
         if(response.data) {
           alert("Successfully Registered, Redirecting To Login Page");
           this.setState({
             redirectTo: "/signin"
           });
         } else { console.log("Error Registering Account") }
-      }).catch(error => {alert(error)});
+      }).catch(error => { console.log(error) });
   }
 
   return (
@@ -36,10 +36,9 @@ export default function SignUp() {
           <h1 className="primary-heading">Create Account</h1>
           <form className="form">
             <input 
-              name="email" 
-              type="email"
-              placeholder="Email"
-              onChange={e => setEmail(e.target.value)} 
+              name="username"
+              placeholder="Username"
+              onChange={e => setUsername(e.target.value)} 
               required 
             />
             <input 
@@ -58,9 +57,9 @@ export default function SignUp() {
             />
             <button 
               type="submit"
-              onClick={() => {
+              onClick={(e) => {
                 if(password === confirmPassword){ 
-                  submitUser();
+                  submitUser(e);
                 } 
                 else alert("Passwords Do Not Match");
               }}

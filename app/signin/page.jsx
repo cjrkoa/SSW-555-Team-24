@@ -11,7 +11,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   
   const login = async () => {
-    axios.post("users/login", {
+    axios.post("users", {
       username: email,
       password: password
     })

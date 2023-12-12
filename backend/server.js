@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const bcrypt = require('bcryptjs');
+const MongoStore = require("connect-mongo");
 
 const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
@@ -23,6 +24,7 @@ app.use(
     session({
         secret: "E4CBXv0zf1",
         resave: false,
+        store: MongoStore.create({ mongoUrl: mongoDB }),
         saveUninitialized: false
     })
 );
@@ -33,8 +35,6 @@ app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
 }));
-
-app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 
 app.use( (req, res, next) => {
@@ -47,13 +47,10 @@ app.post('/users', async (req, res) => {
     console.log('user signup');
     req.session.username = req.body.username;
     req.session.password = req.body.password;
-
     await User.create({
         username: req.session.username,
         password: req.session.password,
     });
-
-    res.end();
 });
 
 app.listen(port, () => console.log("Backend server live on " + port));

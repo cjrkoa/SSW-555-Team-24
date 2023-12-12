@@ -58,6 +58,7 @@ export default function SignUp() {
             <button 
               type="submit"
               onClick={(e) => {
+                e.preventDefault();
                 if(password === confirmPassword){ 
                   submitUser(e);
                 } 

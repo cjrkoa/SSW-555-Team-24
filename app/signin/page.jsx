@@ -52,7 +52,8 @@ export default function SignIn() {
               />
             <button 
               type="submit"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 login();
               }}
             >

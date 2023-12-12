@@ -8,6 +8,8 @@ const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
 const User = require("./database/models/user");
 
+const userRoute = require("./routes/user");
+
 mongoose.set("strictQuery", false);
 
 // Replace with link to our actual DB
@@ -43,6 +45,8 @@ app.use( (req, res, next) => {
     console.log('req.session', req.session);
     next()
 });
+
+app.use("/login", userRoute);
 
 app.listen(port, () => console.log("Backend server live on " + port));
 
@@ -81,7 +85,7 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 app.get("/logout", async (req, res) => {
-    req.logout()
+    req.logout();
     res.redirect("/signin");
 })
 

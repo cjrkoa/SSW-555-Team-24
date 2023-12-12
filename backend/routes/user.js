@@ -1,4 +1,5 @@
-const { router } = require("../server");
+const express = require("express");
+const router = express.Router();
 
 const passport = require("passport");
 
@@ -12,7 +13,7 @@ router.post(
     (req, res) => {
         console.log("Logged In", req.user);
         let userInfo = {
-            userName: req.user.username
+            username: req.user.username
         };
         res.send(userInfo);
     }

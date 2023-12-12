@@ -7,12 +7,13 @@ import "../styles/SignIn_SignUp.css";
 const axios = require("axios");
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
-  const login = async () => {
-    axios.post("users", {
-      username: email,
+  const login = async (event) => {
+    event.preventDefault();
+    axios.post("/login", {
+      username: username,
       password: password
     })
     .then(response => {
@@ -35,12 +36,11 @@ export default function SignIn() {
       <div className="page-container">
         <div className="primary-container">
           <h1 className="primary-heading">Sign In</h1>
-          <form className="form">
+          <form className="form" action="/login" method="POST">
             <input 
-                name="email" 
-                type="email"
-                placeholder="Email"
-                onChange={e => setEmail(e.target.value)}  
+                name="username" 
+                placeholder="Username"
+                onChange={e => setUsername(e.target.value)}  
                 required 
               />
             <input 
@@ -53,8 +53,7 @@ export default function SignIn() {
             <button 
               type="submit"
               onClick={(e) => {
-                e.preventDefault();
-                login();
+                login(e);
               }}
             >
               Sign In

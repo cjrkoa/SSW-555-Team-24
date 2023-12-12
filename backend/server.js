@@ -20,6 +20,8 @@ const express = require("express"),
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
+const router = express.Router();
+
 app.use(
     session({
         secret: "E4CBXv0zf1",
@@ -42,17 +44,6 @@ app.use( (req, res, next) => {
     next()
 });
 
-app.post('/users', async (req, res) => {
-    mongoose.connect(mongoDB);
-    console.log('user signup');
-    req.session.username = req.body.username;
-    req.session.password = req.body.password;
-    await User.create({
-        username: req.session.username,
-        password: req.session.password,
-    });
-});
-
 app.listen(port, () => console.log("Backend server live on " + port));
 
 app.get("/", (req, res) => {
@@ -67,6 +58,32 @@ app.get("/connection", async (req, res) => {
         res.send(err);
     }
 } );
+
+app.post('/users', async (req, res) => {
+    mongoose.connect(mongoDB);
+    console.log('user signup');
+    req.session.username = req.body.username;
+    req.session.password = req.body.password;
+    await User.create({
+        username: req.session.username,
+        password: req.session.password,
+    });
+});
+
+router.get("/login", async (req, res) => {
+    res.render("/signin");
+})
+
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/signin",
+    failureFlash: true
+}));
+
+app.get("/logout", async (req, res) => {
+    req.logout()
+    res.redirect("/signin");
+})
 
 app.post("/newevent", async (req,res) => {
     try{    
@@ -124,4 +141,4 @@ app.get("/events:name", async (req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = app, router;

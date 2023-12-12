@@ -6,6 +6,7 @@ const passport = require("passport");
 router.post(
     "/login",
     function(req, res, next) {
+        console.log("login response: ");
         console.log(req.body);
         next();
     },

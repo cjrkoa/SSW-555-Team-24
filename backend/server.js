@@ -3,12 +3,15 @@ const passport = require("passport");
 const session = require("express-session");
 const bcrypt = require('bcryptjs');
 const MongoStore = require("connect-mongo");
+const LocalStrategy = require("passport-local");
+const flash = require("express-flash");
 
 const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
 const User = require("./database/models/user");
 
-const userRoute = require("./routes/user");
+let userRoute = require("./routes/user");
+let authRouter = require("./routes/auth");
 
 mongoose.set("strictQuery", false);
 
@@ -32,8 +35,21 @@ app.use(
         saveUninitialized: false
     })
 );
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new LocalStrategy(
+    async function(username, password, done) {
+        mongoose.connect(mongoDB);
+        await User.findOne({ username: username }).then( async function (err, user) {
+            if (err) { return done(err); }
+            if (!user) { return done(null, false); }
+            if (!user.verifyPassword(password)) { return done(null, false); }
+            return done(null, user);
+        });
+    }
+));
 
 app.use(cors({
     credentials: true,
@@ -43,10 +59,11 @@ app.use(bodyParser.json({ extended: true }));
 
 app.use( (req, res, next) => {
     console.log('req.session', req.session);
-    next()
+    next();
 });
 
 app.use("/login", userRoute);
+app.use("/", authRouter);
 
 app.listen(port, () => console.log("Backend server live on " + port));
 
@@ -74,11 +91,7 @@ app.post('/users', async (req, res) => {
     });
 });
 
-router.get("/login", async (req, res) => {
-    res.render("/signin");
-})
-
-router.post("/login", passport.authenticate("local", {
+app.post("/login", passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/signin",
     failureFlash: true
@@ -145,4 +158,4 @@ app.get("/events:name", async (req, res) => {
     }
 });
 
-module.exports = app, router;
+module.exports = app;

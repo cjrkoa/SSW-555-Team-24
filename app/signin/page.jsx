@@ -12,10 +12,11 @@ export default function SignIn() {
   
   const login = async (event) => {
     event.preventDefault();
-    axios.post("/login", {
+    const user = {
       username: username,
-      password: password
-    })
+      password: password,
+    }
+    axios.post("http://localhost:5000/login", user)
     .then(response => {
       console.log(response)
       if(response.status === 200) {
@@ -36,7 +37,7 @@ export default function SignIn() {
       <div className="page-container">
         <div className="primary-container">
           <h1 className="primary-heading">Sign In</h1>
-          <form className="form" action="/login" method="POST">
+          <form className="form" action="http://localhost:5000/login" method="POST">
             <input 
                 name="username" 
                 placeholder="Username"
@@ -50,12 +51,7 @@ export default function SignIn() {
                 onChange={e => setPassword(e.target.value)} 
                 required 
               />
-            <button 
-              type="submit"
-              onClick={(e) => {
-                login(e);
-              }}
-            >
+            <button type="submit" onClick={(e) => login(e)}>
               Sign In
             </button>
           </form>

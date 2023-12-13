@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const MongoStore = require("connect-mongo");
 const LocalStrategy = require("passport-local");
 const flash = require("express-flash");
+const path = require("path");
 
 const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
@@ -24,10 +25,11 @@ const express = require("express"),
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
-const router = express.Router();
-
-app.set("views", "./views");
+app.set("views", "../app/views");
 app.set("view engine", "jsx");
+app.use('/static', express.static('static'))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(
     session({
@@ -79,7 +81,7 @@ app.get("/connection", async (req, res) => {
 } );
 
 app.get("/", (req, res) => {
-    res.render('page.jsx');
+    res.render('layout.jsx', {layout: false});
 });
 
 app.post('/users', async (req, res) => {

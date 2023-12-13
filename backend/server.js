@@ -53,7 +53,8 @@ passport.use(new LocalStrategy(
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000',
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
 }));
 app.use(bodyParser.json({ extended: true }));
 
@@ -93,7 +94,7 @@ app.post('/users', async (req, res) => {
 
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/signin",
+    failureRedirect: "/login",
     failureFlash: true
 }));
 

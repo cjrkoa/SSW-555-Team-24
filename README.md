@@ -35,7 +35,7 @@ bun dev
 ```
 
 
-Finally, to start the server on [http://localhost:5000](http://localhost:5000)
+Finally, to start the server on [http://localhost:5000](http://localhost:5000), open up a new terminal and paste the following commands:
 
 ```bash
 cd backend

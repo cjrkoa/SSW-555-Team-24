@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const MongoStore = require("connect-mongo");
 const LocalStrategy = require("passport-local");
 const flash = require("express-flash");
-const path = require("path");
 
 const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
@@ -84,10 +83,6 @@ app.get("/connection", async (req, res) => {
         res.send(err);
     }
 } );
-
-app.get("/", (req, res) => {
-    res.render('layout.jsx', {layout: false});
-});
 
 app.post('/users', async (req, res) => {
     mongoose.connect(mongoDB);

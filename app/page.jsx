@@ -1,4 +1,3 @@
-const React = require("react");
 import Image from "next/image"
 import funrun from './image/Funrun-stock.jpg'
 import concert from './image/concert-stock.jpg'

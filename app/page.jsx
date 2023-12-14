@@ -1,7 +1,6 @@
-const React = require("react");
 import Image from "next/image"
-//import funrun from './image/Funrun-stock.jpg'
-//import concert from './image/concert-stock.jpg'
+import funrun from './image/Funrun-stock.jpg'
+import concert from './image/concert-stock.jpg'
 
 export default function Home() {
   return (
@@ -21,7 +20,7 @@ export default function Home() {
         <div className="lg:col-span-3 flex justify-center items-center">
           <div className="bg-gray-200 rounded-lg p-8 text-center w-full h-full">
             {/* Stock image component or placeholder */}
-            <Image alt="Fun run" layout="responsive" width={700} height={525} />
+            <Image src={funrun} alt="Fun run" layout="responsive" width={700} height={525} />
           </div>
         </div>
 
@@ -29,7 +28,7 @@ export default function Home() {
         <div className="lg:col-span-3 flex justify-center items-center">
           <div className="bg-gray-200 rounded-lg p-8 text-center w-full h-full">
             {/* Stock image component or placeholder */}
-            {<Image alt="Concert" layout="responsive" width={700} height={525} />}
+            {<Image src={concert} alt="Concert" layout="responsive" width={700} height={525} />}
           </div>
         </div>
 

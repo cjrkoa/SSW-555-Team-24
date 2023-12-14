@@ -5,13 +5,13 @@ const bcrypt = require('bcryptjs');
 const MongoStore = require("connect-mongo");
 const LocalStrategy = require("passport-local");
 const flash = require("express-flash");
-const path = require("path");
 
 const Event = require("./database/models/event");
 const Signup = require("./database/models/signup");
 const User = require("./database/models/user");
 
 let userRoute = require("./routes/user");
+let authRouter = require("./routes/auth");
 
 mongoose.set("strictQuery", false);
 
@@ -25,11 +25,7 @@ const express = require("express"),
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
-app.set("views", "../app/views");
-app.set("view engine", "jsx");
-app.use('/static', express.static('static'))
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const router = express.Router();
 
 app.use(
     session({
@@ -68,8 +64,13 @@ app.use( (req, res, next) => {
 });
 
 app.use("/login", userRoute);
+app.use("/", authRouter);
 
 app.listen(port, () => console.log("Backend server live on " + port));
+
+app.get("/", (req, res) => {
+    res.send({ message: "Connected to Backend server!" });
+});
 
 app.get("/connection", async (req, res) => {
     try{
@@ -79,10 +80,6 @@ app.get("/connection", async (req, res) => {
         res.send(err);
     }
 } );
-
-app.get("/", (req, res) => {
-    res.render('layout.jsx', {layout: false});
-});
 
 app.post('/users', async (req, res) => {
     mongoose.connect(mongoDB);
@@ -95,10 +92,6 @@ app.post('/users', async (req, res) => {
     });
 });
 
-app.get("/login", async (req, res) => {
-    res.render("signin.jsx");
-})
-
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
@@ -107,7 +100,7 @@ app.post("/login", passport.authenticate("local", {
 
 app.get("/logout", async (req, res) => {
     req.logout();
-    res.redirect("/login");
+    res.redirect("/signin");
 })
 
 app.post("/newevent", async (req,res) => {

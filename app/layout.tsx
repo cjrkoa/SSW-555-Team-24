@@ -1,15 +1,20 @@
-import '../styles/globals.css'
+import type { Metadata } from 'next'
+import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Background from '@/components/Background'
-import SignUp from './signup'
+import SignUp from './signup/page'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Sharevent',
   description: 'Explore events around you',
 }
 
-export default function RootLayout({ children, username }) {
+export default function RootLayout({ children, username }: {
+  children: React.ReactNode,
+  username: '',
+}) {
+  
   return (
     <html lang="en">
       <body>

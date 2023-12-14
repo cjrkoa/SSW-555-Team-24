@@ -92,15 +92,19 @@ app.post('/users', async (req, res) => {
     });
 });
 
-app.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true
-}));
+app.post(
+    "/login",
+    (req, res, next) => {
+        passport.authenticate("local", { session: false }, (err, user) => {
+            try{ res.send(user.username) }
+            catch{ res.send(err) }
+        })(req, res, next);
+    }
+);
 
 app.get("/logout", async (req, res) => {
     req.logout();
-    res.redirect("/signin");
+    window.location.href = "/signin";
 })
 
 app.post("/newevent", async (req,res) => {

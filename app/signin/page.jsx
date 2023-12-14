@@ -3,41 +3,21 @@
 import React from "react";
 import { Fragment, useState } from "react";
 import "../styles/SignIn_SignUp.css";
-
-const axios = require("axios");
+import { useRouter } from "next/navigation";
+import { login } from "../db";
 
 export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
-  const login = async (event) => {
-    event.preventDefault();
-    const user = {
-      username: username,
-      password: password,
-    }
-    axios.post("http://localhost:5000/login", user)
-    .then(response => {
-      console.log(response)
-      if(response.status === 200) {
-        this.props.updateUser({
-          loggedIn: true,
-          username: response.data.username
-        })
-        
-        this.setState({
-          redirectTo: "/"
-        })
-      }
-    }).catch(error => { console.log(error) })
-  }
+  const router = useRouter();
 
   return (
     <Fragment>
       <div className="page-container">
         <div className="primary-container">
           <h1 className="primary-heading">Sign In</h1>
-          <form className="form" action="http://localhost:5000/login" method="POST">
+          <form className="form" method="POST">
             <input 
                 name="username" 
                 placeholder="Username"
@@ -51,7 +31,7 @@ export default function SignIn() {
                 onChange={e => setPassword(e.target.value)} 
                 required 
               />
-            <button type="submit" onClick={(e) => login(e)}>
+            <button type="refresh" onClick={(e) => login(e, username, password, router)}>
               Sign In
             </button>
           </form>

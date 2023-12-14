@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, username }: {
   children: React.ReactNode,
-  username: '',
+  username: String,
 }) {
   
   return (

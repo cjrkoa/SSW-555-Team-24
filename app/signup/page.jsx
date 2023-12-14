@@ -17,14 +17,12 @@ export default function SignUp() {
       username: username,
       password: password,
     };
-    axios.post("http://localhost:5000/users", user)
+    await axios.post("http://localhost:5000/users", user)
       .then(response => {
         console.log(response);
         if(response.data) {
           alert("Successfully Registered, Redirecting To Login Page");
-          this.setState({
-            redirectTo: "/signin"
-          });
+          window.location.href = "/signin";
         } else { console.log("Error Registering Account") }
       }).catch(error => { console.log(error) });
   }

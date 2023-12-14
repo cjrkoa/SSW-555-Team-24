@@ -39,7 +39,7 @@ Finally, to start the server on [http://localhost:5000]
 
 ```bash
 cd backend
-
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

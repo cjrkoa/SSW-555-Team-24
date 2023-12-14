@@ -39,6 +39,7 @@ Finally, to start the server on [http://localhost:5000]
 
 ```bash
 cd backend
+#
 npm start
 ```
 

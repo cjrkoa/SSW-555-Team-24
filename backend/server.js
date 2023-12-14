@@ -11,6 +11,7 @@ const Signup = require("./database/models/signup");
 const User = require("./database/models/user");
 
 let userRoute = require("./routes/user");
+let authRouter = require("./routes/auth");
 
 mongoose.set("strictQuery", false);
 
@@ -25,9 +26,6 @@ const bodyParser = require('body-parser');
 const fs = require("fs");
 
 const router = express.Router();
-
-app.set("views", "./views");
-app.set("view engine", "jsx");
 
 app.use(
     session({
@@ -66,8 +64,13 @@ app.use( (req, res, next) => {
 });
 
 app.use("/login", userRoute);
+app.use("/", authRouter);
 
 app.listen(port, () => console.log("Backend server live on " + port));
+
+app.get("/", (req, res) => {
+    res.send({ message: "Connected to Backend server!" });
+});
 
 app.get("/connection", async (req, res) => {
     try{
@@ -77,10 +80,6 @@ app.get("/connection", async (req, res) => {
         res.send(err);
     }
 } );
-
-app.get("/", (req, res) => {
-    res.render('page.jsx');
-});
 
 app.post('/users', async (req, res) => {
     mongoose.connect(mongoDB);
@@ -93,10 +92,6 @@ app.post('/users', async (req, res) => {
     });
 });
 
-app.get("/login", async (req, res) => {
-    res.render("signin.jsx");
-})
-
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
@@ -105,7 +100,7 @@ app.post("/login", passport.authenticate("local", {
 
 app.get("/logout", async (req, res) => {
     req.logout();
-    res.redirect("/login");
+    res.redirect("/signin");
 })
 
 app.post("/newevent", async (req,res) => {

@@ -22,7 +22,7 @@ bun install
 ```
 
 
-Then, run the development server using the chosen package manager:
+Next, run the development server using the chosen package manager:
 
 ```bash
 npm run dev
@@ -35,7 +35,7 @@ bun dev
 ```
 
 
-Finally, to start the server on [http://localhost:5000]
+Finally, to start the server on [http://localhost:5000](http://localhost:5000)
 
 ```bash
 cd backend

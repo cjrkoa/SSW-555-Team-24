@@ -90,6 +90,7 @@ app.post('/users', async (req, res) => {
         username: req.session.username,
         password: req.session.password,
     });
+    res.send(req.body.username);
 });
 
 app.post(

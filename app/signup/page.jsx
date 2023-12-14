@@ -20,8 +20,7 @@ export default function SignUp() {
     await axios.post("http://localhost:5000/users", user)
       .then(response => {
         console.log(response);
-        if(response.data) {
-          alert("Successfully Registered, Redirecting To Login Page");
+        if(response.status === 200) {
           window.location.href = "/signin";
         } else { console.log("Error Registering Account") }
       }).catch(error => { console.log(error) });
